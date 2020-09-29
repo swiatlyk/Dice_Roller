@@ -11,7 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //add action to click the button with id = button
         val rollButton: Button = findViewById(R.id.button)
+
+        //action to listen when user tap/click the button, display toast message and use rollDice method
         rollButton.setOnClickListener {
             val toast = Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT)
             toast.show()
@@ -22,6 +25,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Method for creating an object from class Dice
+     * Using roll() method
+     * Displaying it in textView with id testView
+     */
     private fun rollDice() {
         val dice = Dice(6)
         val diceRoll = dice.roll()
@@ -29,6 +37,9 @@ class MainActivity : AppCompatActivity() {
         resultTextView.text = diceRoll.toString()
     }
 
+    /**
+     * Class for dice with method roll which take random number from 1 to numSides of dice
+     */
     class Dice(private val numSides: Int) {
 
         fun roll(): Int {
